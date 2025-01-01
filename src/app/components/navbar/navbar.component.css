@@ -1,0 +1,25 @@
+/* src/app/components/navbar/navbar.component.css */
+.navbar {
+  background-color: #f8f9fa;  /* Light background */
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.nav-link {
+  margin-right: 15px;
+}
+
+.form-control {
+  width: 200px;
+}
+.search-results {
+  position: absolute; /* Adjust based on your layout */
+  background-color: white; /* or any color you prefer */
+  z-index: 1000; /* Ensure it appears above other content */
+  width: 100%; /* Match the width of the navbar */
+}
+.list-group-item {
+  cursor: pointer; /* Change cursor on hover */
+}

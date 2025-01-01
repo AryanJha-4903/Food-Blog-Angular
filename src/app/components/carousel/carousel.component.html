@@ -1,0 +1,37 @@
+<!-- Loading Spinner -->
+<div *ngIf="loading" class="text-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<!-- Bootstrap Carousel Component -->
+<div *ngIf="!loading" id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <ng-container *ngFor="let recipe of recipes; let i = index">
+      <div class="carousel-item" [ngClass]="{'active': i === 0}">
+        <div class="text-center" style="padding: 20px;">
+          <img [src]="recipe.image" class="d-block w-100 recipe-image" alt="{{ recipe.title }}" />
+          <h5 class="mt-3">
+            <a [routerLink]="['/recipe-detail', recipe.id]" class="text-dark text-decoration-none hover-underline">
+              {{ recipe.title }}
+            </a>
+          </h5>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- Carousel Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" transform="rotate(180)">
+      <path d="M10 20A10 10 0 1 0 0 10a10 10 0 0 0 10 10zM8.711 4.3l5.7 5.766L8.7 15.711l-1.4-1.422 4.289-4.242-4.3-4.347z"/>
+  </svg>
+
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M10 20A10 10 0 1 0 0 10a10 10 0 0 0 10 10zM8.711 4.3l5.7 5.766L8.7 15.711l-1.4-1.422 4.289-4.242-4.3-4.347z"/></svg>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
