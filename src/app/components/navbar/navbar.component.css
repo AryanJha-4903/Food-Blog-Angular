@@ -23,3 +23,46 @@
 .list-group-item {
   cursor: pointer; /* Change cursor on hover */
 }
+img.rounded-circle {
+  object-fit: cover;
+}
+.navbar {
+  position: sticky !important;
+  top: 0;
+  z-index: 1000;
+}
+
+/*  <ul ngbDropdownMenu class="dropdown-menu notify-drop notify-mobile dropdown-menu-right nav-drop">
+          <div class="notify-drop-title">
+            <div class="fs-8">Notifications <span class="badge badge-pill badge-primary ml-2">3</span></div>
+            <div>
+              <a href="javascript:void(0)" class="notify-right-icon mt-3">Mark All as Read</a>
+            </div>
+          </div>
+
+          <div class="col-lg-12 drop-content">
+            <li>
+              <div class="col-md-3">
+                <div class="notify-img">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAYxJREFUSEvlluFNAzEMRt1JKJMAkxQmASahTAJMAkwC96RYcnNJ/OWK1B9YOlW98+X5s127O7uQ7S7Eta3gvZndL9dXud5nBcyCb83sxcwARyOA5+X+UQ1gBoxCoCMD/qTAVTBK38qBUR3KefZYssCzh+VemnoVDBQAdl3qGoURwGcIDJ+hqeCfcsoolaQY5aj+E3BMM2nsNVD0u8vSrSiOaRyBY/O1ynGSegXMC9SPAGga1LQs9kF6bupQCF4/vrbqzM8Mxb3nq0BVMGo53DubBkL995KNQxgoUmMRhQrGt4bXKoBSBj5TmwH7YaT9pqj3Wf2xPJQmlh+yBZyqURxUsG+jq8aCcA7qqTm1P3tkZnXtiUvrPVIcJ1FU1Wse7/jo+9qrfQ9cQ0eDI6r2kjCzse626oF9KfByOncb+a7X6GpptMDZlFKaFp84u1fTrgVW5rICj425mmgtsKeZ9cc2Osdi9k42Vg1Wd68aTHdHj8BbmqoOSAZTF//rmk4fQXb3PHVkCow5l/8H/gVv+Vwf/y66BQAAAABJRU5ErkJggg=="/>
+                </div>
+              </div>
+              <div class="col-md-9 pd-l0">
+                <a href="javascript:void(0)" class="notification-user">Sean </a>
+                <span class="notification-type">replied to your comment on a post in </span>
+                <a href="javascript:void(0)" class="notification-for">PHP</a>
+                <a href="javascript:void(0)" class="notify-right-icon">
+                  <i class='bx bx-radio-circle-marked'></i>
+                </a>
+                <p class="time">
+                  <span class="badge badge-pill badge-primary"><i class='bx bxs-group'></i></span> 3h
+                </p>
+              </div>
+            </li>
+            <!-- repeat other notification li's here -->
+          </div>
+
+          <div class="notify-drop-footer text-center">
+            <a href="javascript:void(0)">See More</a>
+          </div>
+        </ul> */

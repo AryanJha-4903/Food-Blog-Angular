@@ -1,0 +1,168 @@
+<div class="messenger">
+  <div class="container-fluid newsfeed d-flex" id="wrapper">
+      <div class="row newsfeed-size f-width">
+          <div class="col-md-12 message-right-side">
+              <div class="row message-right-side-content">
+                  <div class="col-md-12">
+                      <div id="message-frame">
+                          <div class="message-sidepanel">
+                              <div class="message-contacts settings-sidebar">
+                                  <ul class="conversations">
+                                      <h6 class="p-3">General Settings</h6>
+                                      <li class="contact setting-active" [ngClass]="{'setting-active': activeTab === 'account'}">
+                                          <a href="javascript:void(0)" class="wrap d-flex align-items-center" (click)="ontabChange('account')">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="M20 2H8a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-6 2.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM19 15H9v-.25C9 12.901 11.254 11 14 11s5 1.901 5 3.75V15z"></path><path d="M4 8H2v12c0 1.103.897 2 2 2h12v-2H4V8z"></path></svg>
+                                              <div class="meta">
+                                                  <p>&nbsp;&nbsp; Your Account</p>
+                                              </div>
+                                          </a>
+                                      </li>
+                                      <li class="contact" [ngClass]="{'setting-active': activeTab === 'contact'}">
+                                          <a href="javascript:void(0)" class="wrap d-flex align-items-center" (click)="ontabChange('contact')">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="M9.715 12c1.151 0 2-.849 2-2s-.849-2-2-2-2 .849-2 2 .848 2 2 2z"></path><path d="M20 4H4c-1.103 0-2 .841-2 1.875v12.25C2 19.159 2.897 20 4 20h16c1.103 0 2-.841 2-1.875V5.875C22 4.841 21.103 4 20 4zm0 14-16-.011V6l16 .011V18z"></path><path d="M14 9h4v2h-4zm1 4h3v2h-3zm-1.57 2.536c0-1.374-1.676-2.786-3.715-2.786S6 14.162 6 15.536V16h7.43v-.464z"></path></svg>
+                                              <div class="meta">
+                                                  <p>&nbsp;&nbsp; Contact Info</p>
+                                              </div>
+                                          </a>
+                                      </li>
+                                      <h6 class="p-3">Security &#38; Login</h6>
+                                      <li class="contact" [ngClass]="{'setting-active': activeTab === 'password'}">
+                                          <a href="javascript:void(0)" class="wrap d-flex align-items-center" (click)="ontabChange('password')">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="M12 2C9.243 2 7 4.243 7 7v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7c0-2.757-2.243-5-5-5zM9 7c0-1.654 1.346-3 3-3s3 1.346 3 3v3H9V7zm4 10.723V20h-2v-2.277a1.993 1.993 0 0 1 .567-3.677A2.001 2.001 0 0 1 14 16a1.99 1.99 0 0 1-1 1.723z"></path></svg>
+                                              <div class="meta">
+                                                  <p>&nbsp;&nbsp;Password</p>
+                                              </div>
+                                          </a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <ng-container *ngIf="activeTab === 'account'">
+                          <div class="content">
+                              <div class="settings-form p-4">
+                                  <h2>Your Account</h2>
+                                  <form action="" method="" class="mt-4 settings-form">
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label for="settingsFirstName">First Name</label>
+                                              <input type="text" class="form-control" id="settingsFirstName" name="firstName" placeholder="First Name" [value]="useProfile.firstName" [(ngModel)]="useProfile.firstName">
+                                          </div>
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                              <label for="settingsLastName">Last Name</label>
+                                              <input type="text" class="form-control" id="settingsLastName" name="lastname" placeholder="Last Name" [value]="useProfile.lastName" [(ngModel)]="useProfile.lastName">
+                                          </div>
+                                      </div>
+                                      <!-- <div class="col-md-12">
+                                          <div class="form-row mb-3 align-items-center">
+                                              <div class="col">
+                                                  <label for="settingsUsername">Username</label>
+                                                  <input type="email" class="form-control" id="settingsUsername" aria-describedby="usernameHelp" value="arthur_minasyan_96" placeholder="Username">
+                                                  <small id="usernameHelp" class="form-text text-muted">Your public username is the same as your timeline address.</small>
+                                              </div>
+                                              <div class="col check-username">
+                                                  <span><i class='bx bx-check success'></i> Username is available</span>
+                                              </div>
+                                          </div>
+                                      </div> -->
+                                      <div class="col-md-6 text-right">
+                                          <button type="submit" class="btn btn-primary btn-sm" id="save-button" (click)="createAndUpdateProfile()">Save Changes</button>
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+                        </ng-container>
+                        <ng-container *ngIf="activeTab === 'contact'">
+                          <div class="content">
+                            <div class="settings-form p-4">
+                                <h2>Contact Info</h2>
+                                <form action="" method="" class="mt-4 settings-form">
+                                    <div class="row">
+                                        <!-- <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="settingsAddress">Address</label>
+                                                <input type="text" class="form-control" id="settingsAddress" placeholder="Address">
+                                            </div>
+                                        </div> -->
+                                        <!-- <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="settingsPhoneNumber">Phone Number</label>
+                                                <input type="text" class="form-control" id="settingsPhoneNumber" placeholder="Phone Number">
+                                            </div>
+                                        </div> -->
+                                        <div class="col-md-12">
+                                            <div class="form-row mb-3 align-items-center">
+                                                <div class="col">
+                                                    <label for="settingsEmailAddress">Email Address</label>
+                                                    <input type="email" class="form-control" id="settingsEmailAddress" name="email" aria-describedby="emailHelp" [value]="payload.email" placeholder="Email Address" [(ngModel)]="payload.email">
+                                                    <small id="emailHelp" class="form-text text-muted">Updating this email will only change where you receive notifications.</small>
+                                                </div>
+                                                <!-- <div class="col check-username">
+                                                    <span><i class='bx bx-check success'></i> Email Address is available</span>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 text-right">
+                                            <button type="submit" class="btn btn-primary btn-sm" (click)="createAndUpdateProfile()">Save Changes</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        </ng-container>
+                        <ng-container *ngIf="activeTab === 'password'">
+                          <div class="content">
+                            <div class="settings-form p-4">
+                                <h2 class="mb-4">Security &#38; Password</h2>
+                                <h5 class="mb-3 text-muted">Change Password</h5>
+                                <form action="" method="" class="mt-4 settings-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="settingsCurrentPassword">Current Password</label>
+                                            <input type="password" class="form-control" id="settingsCurrentPassword" placeholder="Current Password">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-row mb-3 align-items-center">
+                                            <div class="col">
+                                                <label for="settingsNewPassword">New Password</label>
+                                                <input type="password" class="form-control" id="settingsNewPassword" aria-describedby="passwordHelp" placeholder="New Password">
+                                                <small id="passwordHelp" class="form-text text-muted">It's a good idea to use a strong password that you're not using elsewhere.</small>
+                                            </div>
+                                            <div class="col check-username">
+                                                <div class="progress w-25">
+                                                    <div class="progress-bar bg-success w-75" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-row mb-3">
+                                            <div class="col">
+                                                <label for="settingsRetypePassword">Re-type New</label>
+                                                <input type="password" class="form-control" id="settingsRetypePassword" placeholder="Re-type New Password">
+                                            </div>
+                                            <div class="col check-password">
+                                                <span><i class='bx bx-x error'></i> Passwords do not match</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 text-right">
+                                        <button type="submit" class="btn btn-primary btn-sm">Save Changes</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        </ng-container>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+</div>
