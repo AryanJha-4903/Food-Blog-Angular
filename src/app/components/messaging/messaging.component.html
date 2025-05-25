@@ -1,0 +1,274 @@
+<div class="messenger" style="display: block;">
+  <div class="container-fluid newsfeed " id="wrapper">
+      <div class="row newsfeed-size">
+          <div class="col-md-12 message-right-side">
+              <div class="row message-right-side-content">
+                  <div class="col-md-12">
+                      <div id="message-frame">
+                          <div class="message-sidepanel">
+                              <div class="message-profile">
+                                <div class="wrap">
+                                  <img [src]="images" class="online conv-img" alt="Conversation user" />
+                                  <p>Arthur Minasyan</p>
+
+
+
+
+
+
+                                </div>
+
+                              </div>
+                              <div class="message-search position-relative d-flex">
+                                  <label for=""><i class='bx bx-search'></i></label>
+                                  <input type="text" class="form-control search-input" placeholder="Search for conversations..." />
+                                  <button type="button" class="btn btn-create-conversation"  (click)="openModal(newConversation)"><i class='bx bx-pencil'></i></button>
+                              </div>
+                              <div class="message-contacts">
+                                  <ul class="conversations">
+                                      <li class="contact">
+                                          <div class="wrap">
+                                              <span class="contact-status online"></span>
+                                              <img [src]="images" alt="Conversation user" />
+                                              <span class="unread-messages">3</span>
+                                              <div class="meta">
+                                                  <p class="name">Ruth D. Greene</p>
+                                                  <p class="preview">Great, I’ll see you tomorrow!.</p>
+                                              </div>
+                                          </div>
+                                      </li>
+                                      <li class="contact messenger-user-active">
+                                          <div class="wrap">
+                                              <span class="contact-status busy"></span>
+                                              <img [src]="images" alt="Conversation user" />
+                                              <div class="meta">
+                                                  <p class="name">Susan P. Jarvis</p>
+                                                  <p class="preview">This party is going to have a DJ, food, and drinks.</p>
+                                              </div>
+                                          </div>
+                                      </li>
+                                      <li class="contact">
+                                          <div class="wrap">
+                                              <span class="contact-status away"></span>
+                                              <img [src]="images" alt="Conversation user" />
+                                              <div class="meta">
+                                                  <p class="name">Kimberly R. Hatfield</p>
+                                                  <p class="preview"><span>You:</span> Yeah, I will be there.</p>
+                                              </div>
+                                          </div>
+                                      </li>
+
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="content">
+                              <div class="row">
+                                  <div class="col-md-12 messenger-top-section">
+                                      <div class="contact-profile d-flex align-items-center justify-content-between">
+                                          <div class="messenger-top-luser df-aic">
+                                              <img [src]="images" class="messenger-user" alt="Convarsation user image" />
+                                              <a href="#" class="message-profile-name">Susan P. Jarvis</a>
+                                          </div>
+                                          <div class="social-media messenger-top-ricon df-aic">
+                                            <span ngbDropdown class="dropdown">
+                                              <a
+                                                class="dropdown-toggle"
+                                                id="message-options"
+                                                ngbDropdownToggle
+                                                role="button"
+                                                aria-haspopup="true"
+                                                aria-expanded="false"
+                                              >
+                                                <i class='bx bx-dots-vertical-rounded'></i>
+                                              </a>
+                                              <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right fs-9" aria-labelledby="message-options">
+                                                <button class="dropdown-item" >Mute</button>
+                                                <div class="dropdown-divider"></div>
+                                                <button class="dropdown-item" >Delete</button>
+                                                <div class="dropdown-divider"></div>
+                                                <button class="dropdown-item" >Mark as Unread</button>
+                                                <button class="dropdown-item" >Something's wrong</button>
+                                                <button class="dropdown-item" >Ignore Messages</button>
+                                                <button class="dropdown-item" >Block Messages</button>
+                                              </div>
+                                            </span>
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-12" style="height: 580px;">
+                                      <div class="messages">
+                                          <ul class="messages-content">
+
+                                              <li class="message-reply">
+                                                  <p>Really? Well, what time does it start?</p>
+                                              </li>
+                                              <li class="messages message-receive" style="max-width: 420px !important;">
+                                                  <!-- <img src="assets/images/users/user-6.png" alt="Conversation user image" /> -->
+                                                  <p>It starts at 8:00 pm, and I really think you should go.</p>
+                                              </li>
+                                              <li class="message-reply">
+                                                  <p>Well, who else is going to be there?</p>
+                                              </li>
+                                              <li class="messages message-receive" style="max-width: 420px !important;">
+                                                  <!-- <img src="assets/images/users/user-6.png" alt="Conversation user image" /> -->
+                                                  <p>Everybody from schoolT</p>
+                                              </li>
+                                              <li class="message-reply">
+                                                  <p>How do you know it's going to be so fun?</p>
+                                              </li>
+                                              <li class=" messages message-receive " style="max-width: 520px !important;">
+                                                  <!-- <img s/rc="assets/images/users/user-6.png" alt="Conversation user image" /> -->
+                                                  <p>This party is going to have a DJ, food, and drinks.</p>
+                                              </li>
+                                          </ul>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-11 ">
+                                      <div class="message-input">
+                                          <div class="wrap">
+                                              <form class="d-inline form-inline">
+                                                  <div class="d-flex align-items-center justify-content-between messenger-icons">
+                                                      <button type="button" class="btn search-button">
+                                                        <i class='bx bx-camera' style="scale: 2;"></i>
+                                                      </button>
+                                                      <button type="button" class="btn search-button">
+                                                        <i class='bx bx-images' style="scale: 2;" ></i>
+                                                      </button>
+                                                      <div class="input-group messenger-input">
+                                                        <input
+                                                          type="text"
+                                                          class="form-control search-input"
+                                                          placeholder="Type a message..."
+                                                          aria-label="Type a message..."
+                                                          aria-describedby="button-addon2"
+                                                        />
+
+                                                      </div>
+
+
+                                                      <!-- <div class="input-group messenger-input">
+                                                          <input type="text" class="form-control search-input" placeholder="Type a message..." aria-label="Type a message..." aria-describedby="button-addon2">
+                                                          <div class="input-group-append">
+                                                              <button class="btn search-button" type="button" id="button-addon2 send-message">
+                                                                <i class='bx bx-smile'></i>
+                                                              </button>
+                                                          </div>
+                                                      </div> -->
+                                                      <button type="button" class="btn search-button" id="send-message">
+                                                        <i class='bx bxs-paper-plane' style="scale: 1.5; color: fb8c04 !important" ></i>
+                                                      </button>
+                                                  </div>
+                                              </form>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- New Conversation Modal -->
+  <ng-template #newConversation let-modal>
+    <div class="modal-content new-msg-modal" style="z-index:9999;">
+    <div class="modal-header new-msg-header">
+      <h5 class="modal-title">Start new conversation</h5>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body new-msg-body">
+      <form class="new-msg-form">
+        <div class="form-group">
+          <label for="recipient-name" class="col-form-label">Recipient:</label>
+          <input type="text" class="form-control search-input" id="recipient-name" placeholder="Add recipient...">
+        </div>
+        <div class="form-group">
+          <label for="message-text" class="col-form-label">Message:</label>
+          <textarea class="form-control search-input" rows="5" id="message-text" placeholder="Type a message..."></textarea>
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-footer new-msg-footer">
+      <button type="button" class="btn btn-primary btn-sm" (click)=" modal.close()">Send message</button>
+    </div>
+  </div>
+  </ng-template>
+
+   <!-- <ng-template #newConversation let-modal>
+  <div class="modal fade" id="newConversation" role="dialog" aria-labelledby="newConversationLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header new-msg-header">
+                  <h5 class="modal-title" id="newConversationLabel">Start new conversation</h5>
+                  <button type="button" class="close" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body new-msg-body">
+                  <form action="" method="" class="new-msg-form">
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Recipient:</label>
+                          <input type="text" class="form-control search-input" id="recipient-name" placeholder="Add recipient...">
+                      </div>
+                      <div class="form-group">
+                          <label for="message-text" class="col-form-label">Message:</label>
+                          <textarea class="form-control search-input" rows="5" id="message-text" placeholder="Type a message..."></textarea>
+                      </div>
+                  </form>
+              </div>
+              <div class="modal-footer new-msg-footer">
+                  <button type="button" class="btn btn-primary btn-sm">Send message</button>
+              </div>
+          </div>
+      </div>
+  </div>
+   </ng-template> -->
+  <!-- Call modal -->
+  <!-- <div id="callModal" class="modal fade call-modal" tabindex="-1" role="dialog" aria-labelledby="callModalLabel" aria-hidden="true">
+      <div class="modal-dialog call-modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header align-items-center">
+                  <div class="call-status">
+                      <h1 id="callModalLabel" class="modal-title mr-3">Connected</h1>
+                      <span class="online-status bg-success"></span>
+                  </div>
+                  <div class="modal-options d-flex align-items-center">
+                      <button type="button" class="btn btn-quick-link" id="minimize-call-window">
+                          <i class='bx bx-minus'></i>
+                      </button>
+                  </div>
+              </div>
+              <div class="modal-body">
+                  <div class="row h-100">
+                      <div class="col-md-12 d-flex align-items-center justify-content-center">
+                          <div class="call-user text-center">
+                              <div class="call-user-img-anim">
+                                  <img src="assets/images/users/user-1.jpg" class="call-user-img" alt="Call user image">
+                              </div>
+                              <p class="call-user-name">Name Surename</p>
+                              <p class="text-muted call-time">05:28</p>
+                          </div>
+                      </div>
+                      <div class="col-md-4 offset-md-4 d-flex align-items-center justify-content-between call-btn-list">
+                          <a href="#" class="btn call-btn" data-toggle="tooltip" data-placement="top" data-title="Disable microphone"><i class='bx bxs-microphone'></i></a>
+                          <a href="#" class="btn call-btn" data-toggle="tooltip" data-placement="top" data-title="Enable camera"><i class='bx bxs-video-off'></i></a>
+                          <a href="#" class="btn call-btn drop-call" data-toggle="tooltip" data-placement="top" data-title="End call"><i class='bx bxs-phone'></i></a>
+                          <a href="#" class="btn call-btn" data-toggle="tooltip" data-placement="top" data-title="Share Screen"><i class='bx bx-laptop'></i></a>
+                          <a href="#" class="btn call-btn" data-toggle="tooltip" data-placement="top" data-title="Dark mode"><i class='bx bx-moon'></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div> -->
+  <!-- END call modal -->
+
+
+</div>

@@ -1,0 +1,104 @@
+::ng-deep .modal.show {
+  z-index: 1055 !important;
+}
+
+::ng-deep .modal-backdrop.show {
+  z-index: 1050 !important;
+}
+.wrap {
+  display: block;
+}
+
+.ngb-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.ngb-dropdown-menu {
+  max-width: 200px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ngb-dropdown-item {
+  color: #333;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.ngb-dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
+/* <div class="wrap">
+                                      <img src="assets/images/users/user-4.jpg" class="online conv-img" alt="Conversation user" />
+                                      <p>Arthur Minasyan</p>
+                                      <!-- <i class='bx bx-chevron-down expand-button'></i> -->
+                                      <i
+                                      class="bx expand-button"
+                                      [ngClass]="{
+                                        'bx-chevron-down': !isExpanded,
+                                        'bx-chevron-up': isExpanded
+                                      }"
+                                      (click)="toggleExpanded()"
+                                      style="cursor: pointer;">
+                                    </i>
+                                      <div id="status-options">
+                                          <ul id="set-online-status">
+                                              <li id="status-online" class="messenger-user-active"><span class="status-circle"></span>
+                                                  <p>Online</p>
+                                              </li>
+                                              <li id="status-away"><span class="status-circle"></span>
+                                                  <p>Away</p>
+                                              </li>
+                                              <li id="status-busy"><span class="status-circle"></span>
+                                                  <p>Busy</p>
+                                              </li>
+                                              <li id="status-offline"><span class="status-circle"></span>
+                                                  <p>Offline</p>
+                                              </li>
+                                          </ul>
+                                      </div>
+                                      <div id="expanded" [@slideToggle]="isExpanded ? 'open' : 'closed'">
+                                        <ul class="list-group list-group-flush">
+                                          <li class="list-group-item">
+                                            <a href="javascript:void(0)" class="text-dark fs-9">
+                                              <i class='bx bx-search text-primary mr-3'></i> Search in Conversation
+                                            </a>
+                                          </li>
+                                          <li class="list-group-item">
+                                            <a href="javascript:void(0)" class="text-dark fs-9">
+                                              <i class='bx bx-pencil text-primary mr-3'></i> Edit Nicknames
+                                            </a>
+                                          </li>
+                                          <li class="list-group-item">
+                                            <a href="javascript:void(0)" class="text-dark fs-9">
+                                              <i class='bx bxs-color-fill text-primary mr-3'></i> Change Color
+                                            </a>
+                                          </li>
+                                          <li class="list-group-item">
+                                            <a href="javascript:void(0)" class="text-dark fs-9">
+                                              <i class='bx bx-bell text-primary mr-3'></i> Notifications
+                                            </a>
+                                          </li>
+                                        </ul>
+                                      </div>
+
+                                      <!-- <div id="expanded">
+                                          <ul class="list-group list-group-flush">
+                                              <li class="list-group-item">
+                                                  <a href="javascript:void(0)" class="text-dark fs-9"><i class='bx bx-search text-primary mr-3'></i> Search in Conversation</a>
+                                              </li>
+                                              <li class="list-group-item">
+                                                  <a href="javascript:void(0)" class="text-dark fs-9"><i class='bx bx-pencil text-primary mr-3'></i> Edit Nicknames</a>
+                                              </li>
+                                              <li class="list-group-item">
+                                                  <a href="javascript:void(0)" class="text-dark fs-9"><i class='bx bxs-color-fill text-primary mr-3'></i> Change Color</a>
+                                              </li>
+                                              <li class="list-group-item">
+                                                  <a href="javascript:void(0)" class="text-dark fs-9"><i class='bx bx-bell text-primary mr-3'></i> Notifications</a>
+                                              </li>
+                                          </ul>
+                                      </div> -->
+                                  </div> */

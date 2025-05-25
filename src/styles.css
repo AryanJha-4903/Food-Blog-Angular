@@ -1,10 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
-h1,h2,h4,h5,p,span,li,input,form,a {
+@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display');
+@import url('https://cdn.jsdelivr.net/npm/boxicons@1.9.2/css/boxicons.min.css');
+/* @import url('https://cdn.jsdelivr.net/npm/boxicons@1.9.2/css/boxicons.min.css') */
 
-  font-family: "Dancing Script", cursive;
-  font-size: 20px;
-  font-optical-sizing: auto;
-  font-weight: 900;
-  font-style: normal;
+.dropdown-toggle::after {
+  display: none !important;
 }
+.badge, .badge-primary, .btn-primary .search-button{
+  color: #ffffff !important;/* White text color */
+  background-color: #fb8c04 !important; /* Orange background color */
+  border-color: #fb8c04 !important; /* Orange border color */
+}
+/* .carousel-wrapper {
+  max-width: 650px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 10px;
+} */
+
+/* Style for both images and videos */
+/* .carousel-media {
+  /* width: 100%; */
+  /* max-height: 300px; */
+
+
+/* .carousel-media:hover {
+  transform: scale(1.02);
+} */
+
+/* Owl Carousel Navigation Arrows */
+/* .owl-nav button.owl-prev,
+.owl-nav button.owl-next {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  margin: 0 10px;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+} */
+
+/* .owl-nav button.owl-prev:hover,
+.owl-nav button.owl-next:hover {
+  background-color: #0056b3;
+} */
+
+/* Owl Carousel Dots */
+/* .owl-dots {
+  text-align: center;
+  margin-top: 10px;
+} */
+
+/* .owl-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+} */
+
+/* .owl-dot.active {
+  background-color: #007bff;
+} */
+
+
+

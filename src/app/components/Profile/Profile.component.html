@@ -1,0 +1,888 @@
+<div class="profile">
+  <div class="container-fluid newsfeed " id="wrapper">
+      <div class="row newsfeed-size">
+          <div class="col-md-12 p-0">
+            <div>
+              <!-- <app-navbar></app-navbar> -->
+            </div>
+              <div class="row profile-right-side-content">
+                  <div class="user-profile">
+                      <div class="profile-header-background">
+                          <a href="javascript:void(0)" class="profile-cover">
+                              <img src="data:image/png;base64,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" alt="Profile Header Background">
+                              <div class="cover-overlay">
+                                  <a href="javascript:void(0)" class="btn btn-update-cover"><i class='bx bxs-camera'></i> Update Cover Photo</a>
+                              </div>
+                          </a>
+                      </div>
+                      <div class="row profile-rows">
+                          <div class="col-md-3">
+                              <div class="profile-info-left">
+                                  <div class="text-center">
+                                      <div class="profile-img w-shadow" >
+                                        <div class="" [ngClass]="{'profile-img-overlay': viewProfileFlag == false}"></div>
+                                          <img [src]="currentSession?.profilePicture" alt="Avatar" class="avatar img-circle">
+                                          <div class="profile-img-caption"*ngIf="!viewProfileFlag">
+                                              <label for="updateProfilePic" class="upload" >
+                                                  <i class='bx bxs-camera'></i> Update
+                                                  <input type="file"  (change)="updateProfilePictureFromInput($event)" id="updateProfilePicInput" class="text-center upload">
+                                              </label>
+                                          </div>
+                                      </div>
+                                      <p class="profile-fullname mt-3">{{currentSession?.firstName+ " "+ currentSession?.lastName}}</p>
+                                      <p class="profile-username mb-3 text-muted">{{userName}}</p>
+                                  </div>
+                                  <div class="intro mt-4">
+                                      <div class="d-flex">
+                                          <button type="button" class="btn col-12 btn-follow mr-5"*ngIf="viewProfileFlag && !toggleFollowButton" (click)="updateFriendsList(true)" ><i class='bx bx-plus' ></i> Follow</button>
+                                          <button type="button" class="btn col-12 btn-start-chat mr-5"*ngIf="viewProfileFlag && toggleFollowButton" (click)="updateFriendsList(false)"><i class='bx bx-minus'  ></i> Unfollow</button>
+                                          <!-- <button type="button" class="btn btn-start-chat" data-toggle="modal" data-target="newMessageModal" *ngIf="viewProfileFlag"><i class='bx bxs-message-rounded'></i> <span class="fs-8">Message</span></button>
+                                          <button type="button" class="btn btn-follow" id="moreMobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class='bx bx-dots-horizontal-rounded'></i> <span class="fs-8">More</span></button>
+                                          <div class="dropdown-menu dropdown-menu-right profile-ql-dropdown" aria-labelledby="moreMobile">
+                                              <a href="newsfeed.html" class="dropdown-item">Timeline</a>
+                                              <a href="about.html" class="dropdown-item">About</a>
+                                              <a href="followers.html" class="dropdown-item">Followers</a>
+                                              <a href="following.html" class="dropdown-item">Following</a>
+                                              <a href="photos.html" class="dropdown-item">Photos</a>
+                                              <a href="videos.html" class="dropdown-item">Videos</a>
+                                              <a href="check-ins.html" class="dropdown-item">Check-Ins</a>
+                                              <a href="events.html" class="dropdown-item">Events</a>
+                                              <a href="likes.html" class="dropdown-item">Likes</a>
+                                          </div> -->
+                                      </div>
+                                  </div>
+                                  <div class="intro mt-5 mv-hidden">
+                                      <div class="intro-item d-flex justify-content-between align-items-center">
+                                          <h3 class="intro-about">Intro</h3>
+                                      </div>
+                                      <div class="intro-item d-flex justify-content-between align-items-center">
+                                          <p class="intro-title text-muted"><i class='bx bx-briefcase text-primary'></i> Web Developer at <a href="javascript:void(0)">Company Name</a></p>
+                                      </div>
+                                      <div class="intro-item d-flex justify-content-between align-items-center">
+                                          <p class="intro-title text-muted"><i class='bx bx-map text-primary'></i> Lives in <a href="javascript:void(0)">City, Country</a></p>
+                                      </div>
+                                      <div class="intro-item d-flex justify-content-between align-items-center">
+                                          <p class="intro-title text-muted"><i class='bx bx-time text-primary'></i> Last Login <a href="javascript:void(0)">Online <span class="ml-1 online-status bg-success"></span></a></p>
+                                      </div>
+                                      <div class="intro-item d-flex justify-content-between align-items-center">
+                                          <a href="javascript:void(0)" class="btn btn-quick-link join-group-btn border w-100" *ngIf="!viewProfileFlag" (click)="gotoSetting()"  (mousedown)="scaleDown($event)"
+                                          (mouseup)="scaleUp($event)"
+                                          (mouseleave)="scaleUp($event)">Edit Details</a>
+                                      </div>
+                                  </div>
+                                  <div class="intro mt-5 row mv-hidden">
+                                      <div class="col-md-4">
+                                          <img src="assets/images/users/album/album-1.jpg" width="95" alt="">
+                                      </div>
+                                      <div class="col-md-4">
+                                          <img src="assets/images/users/album/album-2.jpg" width="95" alt="">
+                                      </div>
+                                      <div class="col-md-4">
+                                          <img src="assets/images/users/album/album-3.jpg" width="95" alt="">
+                                      </div>
+                                  </div>
+                                  <div class="intro mt-5 mv-hidden">
+                                      <div class="intro-item d-flex justify-content-between align-items-center">
+                                          <h3 class="intro-about">Other Social Accounts</h3>
+                                      </div>
+                                      <div class="intro-item d-flex justify-content-between align-items-center">
+                                          <p class="intro-title text-muted"><i class='bx bxl-facebook-square facebook-color'></i> <a href="javascript:void(0)" target="_blank">facebook.com/username</a></p>
+                                      </div>
+                                      <div class="intro-item d-flex justify-content-between align-items-center">
+                                          <p class="intro-title text-muted"><i class='bx bxl-twitter twitter-color'></i> <a href="javascript:void(0)" target="_blank">twitter.com/username</a></p>
+                                      </div>
+                                      <div class="intro-item d-flex justify-content-between align-items-center">
+                                          <p class="intro-title text-muted"><i class='bx bxl-instagram instagram-color'></i> <a href="javascript:void(0)" target="_blank">instagram.com/username</a></p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-9 p-0">
+                              <div class="profile-info-right">
+
+                                  <!-- Posts section -->
+                                  <div class="row">
+                                      <div class="col-md-9 profile-center">
+                                          <ul class="list-inline profile-links d-flex justify-content-between w-shadow rounded">
+                                              <li class="list-inline-item " (click)="toggletab()" [ngClass]="{'profile-active': toggleFlag === false}">
+                                                  <a href="javascript:void(0)">Timeline</a>
+                                              </li>
+                                              <li class="list-inline-item" (click)="toggletab()" [ngClass]="{'profile-active': toggleFlag === true}" >
+                                                  <a href="javascript:void(0)">Friends</a>
+                                              </li>
+
+                                              <li class="list-inline-item" ngbDropdown>
+                                                <a class="nav-link" href="javascript:void(0)" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
+                                                  <i class="bx bx-dots-vertical-rounded"></i>
+                                                </a>
+                                                <ul ngbDropdownMenu class="dropdown-menu dropdown-menu-right profile-ql-dropdown">
+                                                  <li><a href="javascript:void(0)" class="dropdown-item">Activity Log</a></li>
+                                                  <li><a href="javascript:void(0)" class="dropdown-item">Videos</a></li>
+                                                  <li><a href="javascript:void(0)" class="dropdown-item">Check-Ins</a></li>
+                                                  <li><a href="javascript:void(0)" class="dropdown-item">Events</a></li>
+                                                  <li><a href="javascript:void(0)" class="dropdown-item">Likes</a></li>
+                                                </ul>
+                                              </li>
+
+                                          </ul>
+
+
+                                          <!--  -->
+                                          <ng-container *ngIf="!toggleFlag" >
+                                            <ng-container *ngFor="let item of postList; let i = index">
+
+                                              <div class="post border-bottom p-3 bg-white w-shadow" >
+                                <div class="media text-muted pt-3">
+                                    <img [src]="item?.profile?.profilePicture" alt="Online user" class="mr-3 post-user-image">
+                                    <div class="media-body pb-3 mb-0 small lh-125">
+                                        <div class="d-flex justify-content-between align-items-center w-100">
+                                            <a href="javascript:void(0)" class="text-gray-dark post-user-name">{{item?.profile?.firstName+ " " + item?.profile?.lastName}}</a>
+                                            <!-- <div class="dropdown">
+                                                <a href="javascript:void(0)" class="post-more-settings" role="button" data-toggle="dropdown" id="postOptions" aria-haspopup="true" aria-expanded="false">
+                                                    <i class='bx bx-dots-horizontal-rounded'></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left post-dropdown-menu">
+                                                    <a href="#" class="dropdown-item" aria-describedby="savePost">
+                                                        <div class="row">
+                                                            <div class="col-md-2">
+                                                                <i class='bx bx-bookmark-plus post-option-icon'></i>
+                                                            </div>
+                                                            <div class="col-md-10">
+                                                                <span class="fs-9">Save post</span>
+                                                                <small id="savePost" class="form-text text-muted">Add this to your saved items</small>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <a href="#" class="dropdown-item" aria-describedby="hidePost">
+                                                        <div class="row">
+                                                            <div class="col-md-2">
+                                                                <i class='bx bx-hide post-option-icon'></i>
+                                                            </div>
+                                                            <div class="col-md-10">
+                                                                <span class="fs-9">Hide post</span>
+                                                                <small id="hidePost" class="form-text text-muted">See fewer posts like this</small>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <a href="#" class="dropdown-item" aria-describedby="snoozePost">
+                                                        <div class="row">
+                                                            <div class="col-md-2">
+                                                                <i class='bx bx-time post-option-icon'></i>
+                                                            </div>
+                                                            <div class="col-md-10">
+                                                                <span class="fs-9">Snooze Lina for 30 days</span>
+                                                                <small id="snoozePost" class="form-text text-muted">Temporarily stop seeing posts</small>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <a href="#" class="dropdown-item" aria-describedby="reportPost">
+                                                        <div class="row">
+                                                            <div class="col-md-2">
+                                                                <i class='bx bx-block post-option-icon'></i>
+                                                            </div>
+                                                            <div class="col-md-10">
+                                                                <span class="fs-9">Report</span>
+                                                                <small id="reportPost" class="form-text text-muted">I'm concerned about this post</small>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                        <span class="d-block">{{getTimeAgo(item?.post?.createdAt)}}<i class='bx bx-globe ml-3'></i></span>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <p>{{item?.post?.caption}}</p>
+                                </div>
+                                <div class="carousel-wrapper mt-2 mb-3" >
+                                  <owl-carousel-o [options]="customOptions" *ngIf="item?.post?.mediaUrls?.length > 0" style="max-height: 500px;min-height: 300px;overflow: hidden;">
+
+                                    <ng-container *ngFor="let url of item?.post?.mediaUrls">
+                                      <ng-template carouselSlide>
+                                        <div class="media-slide">
+                                        <img
+                                          *ngIf="isImage(url)"
+                                          [src]="serverEndPoint + url"
+                                          alt="Post Image"
+                                          class="carousel-media"
+                                        />
+                                        <video
+                                          *ngIf="isVideo(url)"
+                                          controls
+                                          class="carousel-media"
+                                        >
+                                          <source [src]="serverEndPoint + url" type="video/mp4" />
+                                          Your browser does not support the video tag.
+                                        </video>
+                                      </div>
+                                      </ng-template>
+                                    </ng-container>
+                                  </owl-carousel-o>
+                                </div>
+
+                                <div class="mb-3">
+                                    <!-- Reactions -->
+                                    <div class="argon-reaction">
+                                        <span class="like-btn">
+                                            <!-- <a *ngIf="isLiked(item?.post?.postId)" (click)="updateLike(item?.post?.postId, i, false)">
+                                              <i class='bx bxs-like mr-2'></i> {{ item?.post?.like }}
+                                            </a> -->
+
+                                            <!-- <a *ngIf="!isLiked(item?.post?.postId)" (click)="updateLike(item?.post?.postId, i, true)">
+                                              <i class='bx bx-like mr-2'></i> {{ item?.post?.like }}
+                                            </a> -->
+                                        </span>
+                                    </div>
+                                    <a href="javascript:void(0)" class="post-card-buttons" id="show-comments" ><i class='bx bx-message-rounded mr-2' (click)="toggleComments(i)"></i></a>
+                                    <div class="dropdown dropup share-dropup">
+                                        <a href="javascript:void(0)" class="post-card-buttons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class='bx bx-share-alt mr-2'></i> Share
+                                        </a>
+                                        <div class="dropdown-menu post-dropdown-menu">
+                                            <a href="#" class="dropdown-item">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <i class='bx bx-share-alt'></i>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        <span>Share Now (Public)</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="dropdown-item">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <i class='bx bx-share-alt'></i>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        <span>Share...</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="dropdown-item">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <i class='bx bx-message'></i>
+                                                    </div>
+                                                    <div class="col-md-10">
+                                                        <span>Send as Message</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border-top pt-3 hide-comments " [class.d-none]="!isCommentVisible(i)">
+                                    <div class="row bootstrap snippets">
+                                        <div class="col-md-12">
+                                            <div class="comment-wrapper">
+                                                <div class="panel panel-info">
+                                                    <div class="panel-body">
+                                                        <ul class="media-list comments-list">
+                                                            <li class="media comment-form">
+                                                                <a href="#" class="pull-left">
+                                                                    <img [src]="sessionProfile?.profilePicture" alt="" class="img-circle">
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <form action="" method="" role="form">
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="input-group">
+                                                                                    <input type="text" class="form-control comment-input" placeholder="Write a comment..." name="comment" [(ngModel)]="commentText" (keyup.enter)="addComment(item?.post?.postId, i);">
+
+                                                                                    <div class="input-group-btn">
+                                                                                        <button type="button" class="btn comment-form-btn" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class='bx bxs-smiley-happy'></i></button>
+                                                                                        <button type="button" class="btn comment-form-btn comment-form-btn" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class='bx bx-camera'></i></button>
+                                                                                        <button type="button" class="btn comment-form-btn" data-toggle="tooltip" data-placement="top" title="Post Comment" (click)="addComment(item?.post?.postId, i); "><i class='bx bx-send'></i></button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </li>
+                                                            <li class="media" *ngFor="let comment of item?.comments">
+                                                                <a href="javascript:void(0)" class="pull-left">
+                                                                    <img [src]="comment?.profile?.profilePicture" alt="" class="img-circle">
+                                                                </a>
+                                                                <div class="media-body">
+                                                                    <div class="d-flex justify-content-between align-items-center w-100">
+                                                                        <strong class="text-gray-dark"><a href="javascript:void(0)" class="fs-8">{{comment?.profile?.firstName+ " " + comment?.profile?.lastName}}</a></strong>
+                                                                        <a href="#"><i class='bx bx-dots-horizontal-rounded'></i></a>
+                                                                    </div>
+                                                                    <span class="d-block comment-created-time">{{getTimeAgo(comment?.comment?.createdAt)}}</span>
+                                                                    <p class="fs-8 pt-2">
+                                                                        {{comment?.comment?.text}}
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+
+                                                            <li class="media">
+                                                                <div class="media-body">
+                                                                    <div class="comment-see-more text-center">
+                                                                        <button type="button" class="btn btn-link fs-8">See More</button>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                            <!-- <div class="post border-bottom p-3 bg-white w-shadow">
+                                                <div class="media text-muted pt-3">
+                                                    <img src="assets/images/users/user-4.jpg" alt="Online user" class="mr-3 post-user-image">
+                                                    <div class="media-body pb-3 mb-0 small lh-125">
+                                                        <div class="d-flex justify-content-between align-items-center w-100">
+                                                            <span class="post-type text-muted"><a href="javascript:void(0)" class="text-gray-dark post-user-name mr-2">Arthur Minasyan</a> updated his cover photo.</span>
+                                                          <div ngbDropdown class="dropdown">
+                                                              <a class="post-more-settings" ngbDropdownToggle role="button" id="postOptions" aria-haspopup="true" aria-expanded="false">
+                                                                <i class='bx bx-dots-horizontal-rounded'></i>
+                                                              </a>
+
+                                                              <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left post-dropdown-menu" aria-labelledby="postOptions">
+
+                                                                <button ngbDropdownItem class="dropdown-item">
+                                                                  <div class="row">
+                                                                    <div class="col-md-2">
+                                                                      <i class='bx bx-bookmark-plus post-option-icon'></i>
+                                                                    </div>
+                                                                    <div class="col-md-10">
+                                                                      <span class="fs-9">Save post</span>
+                                                                      <small class="form-text text-muted">Add this to your saved items</small>
+                                                                    </div>
+                                                                  </div>
+                                                                </button>
+
+                                                                <button ngbDropdownItem class="dropdown-item">
+                                                                  <div class="row">
+                                                                    <div class="col-md-2">
+                                                                      <i class='bx bx-hide post-option-icon'></i>
+                                                                    </div>
+                                                                    <div class="col-md-10">
+                                                                      <span class="fs-9">Hide post</span>
+                                                                      <small class="form-text text-muted">See fewer posts like this</small>
+                                                                    </div>
+                                                                  </div>
+                                                                </button>
+
+                                                                <button ngbDropdownItem class="dropdown-item">
+                                                                  <div class="row">
+                                                                    <div class="col-md-2">
+                                                                      <i class='bx bx-time post-option-icon'></i>
+                                                                    </div>
+                                                                    <div class="col-md-10">
+                                                                      <span class="fs-9">Snooze Arthur for 30 days</span>
+                                                                      <small class="form-text text-muted">Temporarily stop seeing posts</small>
+                                                                    </div>
+                                                                  </div>
+                                                                </button>
+
+                                                                <button ngbDropdownItem class="dropdown-item">
+                                                                  <div class="row">
+                                                                    <div class="col-md-2">
+                                                                      <i class='bx bx-block post-option-icon'></i>
+                                                                    </div>
+                                                                    <div class="col-md-10">
+                                                                      <span class="fs-9">Report</span>
+                                                                      <small class="form-text text-muted">I'm concerned about this post</small>
+                                                                    </div>
+                                                                  </div>
+                                                                </button>
+
+                                                              </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <span class="d-block">3 hours ago <i class='bx bx-globe ml-3'></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-3">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis voluptatem veritatis harum, tenetur, quibusdam voluptatum, incidunt saepe minus maiores ea atque sequi illo veniam sint quaerat corporis totam et. Culpa?</p>
+                                                </div>
+                                                <div class="d-block mt-3">
+                                                    <img src="assets/images/users/post/post-1.jpg" class="w-100 mb-3" alt="post image">
+                                                </div>
+                                                <div class="mb-2">
+
+
+                                                    <div class="argon-reaction">
+                                                        <span class="like-btn">
+                                                            <a href="javascript:void(0)" class="post-card-buttons" id="reactions"><i class='bx bxs-like mr-2'></i> 67</a>
+                                                            <ul class="reactions-box dropdown-shadow">
+                                                                <li class="reaction reaction-like" data-reaction="Like"></li>
+                                                                <li class="reaction reaction-love" data-reaction="Love"></li>
+                                                                <li class="reaction reaction-haha" data-reaction="HaHa"></li>
+                                                                <li class="reaction reaction-wow" data-reaction="Wow"></li>
+                                                                <li class="reaction reaction-sad" data-reaction="Sad"></li>
+                                                                <li class="reaction reaction-angry" data-reaction="Angry"></li>
+                                                            </ul>
+                                                        </span>
+                                                    </div>
+
+                                                    <a href="javascript:void(0)" class="post-card-buttons" id="show-comments"><i class='bx bx-message-rounded mr-2'></i> 5</a>
+                                                    <div class="dropdown dropup share-dropup">
+                                                        <a href="javascript:void(0)" class="post-card-buttons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <i class='bx bx-share-alt mr-2'></i> Share
+                                                        </a>
+                                                        <div class="dropdown-menu post-dropdown-menu">
+                                                            <a href="javascript:void(0)" class="dropdown-item">
+                                                                <div class="row">
+                                                                    <div class="col-md-2">
+                                                                        <i class='bx bx-share-alt'></i>
+                                                                    </div>
+                                                                    <div class="col-md-10">
+                                                                        <span>Share Now (Public)</span>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <a href="javascript:void(0)" class="dropdown-item">
+                                                                <div class="row">
+                                                                    <div class="col-md-2">
+                                                                        <i class='bx bx-share-alt'></i>
+                                                                    </div>
+                                                                    <div class="col-md-10">
+                                                                        <span>Share...</span>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <a href="javascript:void(0)" class="dropdown-item">
+                                                                <div class="row">
+                                                                    <div class="col-md-2">
+                                                                        <i class='bx bx-message'></i>
+                                                                    </div>
+                                                                    <div class="col-md-10">
+                                                                        <span>Send as Message</span>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="border-top pt-3 hide-comments" style="display: none;">
+                                                    <div class="row bootstrap snippets">
+                                                        <div class="col-md-12">
+                                                            <div class="comment-wrapper">
+                                                                <div class="panel panel-info">
+                                                                    <div class="panel-body">
+                                                                        <ul class="media-list comments-list">
+                                                                            <li class="media comment-form">
+                                                                                <a href="javascript:void(0)" class="pull-left">
+                                                                                    <img src="assets/images/users/user-4.jpg" alt="" class="img-circle">
+                                                                                </a>
+                                                                                <div class="media-body">
+                                                                                    <form action="" method="" role="form">
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-12">
+                                                                                                <div class="input-group">
+                                                                                                    <input type="text" class="form-control comment-input" placeholder="Write a comment...">
+
+                                                                                                    <div class="input-group-btn">
+                                                                                                        <button type="button" class="btn comment-form-btn" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class='bx bxs-smiley-happy'></i></button>
+                                                                                                        <button type="button" class="btn comment-form-btn comment-form-btn" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class='bx bx-camera'></i></button>
+                                                                                                        <button type="button" class="btn comment-form-btn comment-form-btn" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class='bx bx-microphone'></i></button>
+                                                                                                        <button type="button" class="btn comment-form-btn" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class='bx bx-file-blank'></i></button>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="media">
+                                                                                <a href="javascript:void(0)" class="pull-left">
+                                                                                    <img src="assets/images/users/user-2.jpg" alt="" class="img-circle">
+                                                                                </a>
+                                                                                <div class="media-body">
+                                                                                    <div class="d-flex justify-content-between align-items-center w-100">
+                                                                                        <strong class="text-gray-dark"><a href="javascript:void(0)" class="fs-8">Karen Minas</a></strong>
+                                                                                        <a href="javascript:void(0)"><i class='bx bx-dots-horizontal-rounded'></i></a>
+                                                                                    </div>
+                                                                                    <span class="d-block comment-created-time">30 min ago</span>
+                                                                                    <p class="fs-8 pt-2">
+                                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                                                        Lorem ipsum dolor sit amet, <a href="javascript:void(0)">javascript:void(0)consecteturadipiscing </a>.
+                                                                                    </p>
+                                                                                    <div class="commentLR">
+                                                                                        <button type="button" class="btn btn-link fs-8">Like</button>
+                                                                                        <button type="button" class="btn btn-link fs-8">Reply</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="media">
+                                                                                <a href="javascript:void(0)" class="pull-left">
+                                                                                    <img src="https://bootdey.com/img/Content/user_2.jpg" alt="" class="img-circle">
+                                                                                </a>
+                                                                                <div class="media-body">
+                                                                                    <div class="d-flex justify-content-between align-items-center w-100">
+                                                                                        <strong class="text-gray-dark"><a href="javascript:void(0)" class="fs-8">Lia Earnest</a></strong>
+                                                                                        <a href="javascript:void(0)"><i class='bx bx-dots-horizontal-rounded'></i></a>
+                                                                                    </div>
+                                                                                    <span class="d-block comment-created-time">2 hours ago</span>
+                                                                                    <p class="fs-8 pt-2">
+                                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                                                        Lorem ipsum dolor sit amet, <a href="javascript:void(0)">javascript:void(0)consecteturadipiscing </a>.
+                                                                                    </p>
+                                                                                    <div class="commentLR">
+                                                                                        <button type="button" class="btn btn-link fs-8">Like</button>
+                                                                                        <button type="button" class="btn btn-link fs-8">Reply</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="media">
+                                                                                <a href="javascript:void(0)" class="pull-left">
+                                                                                    <img src="https://bootdey.com/img/Content/user_3.jpg" alt="" class="img-circle">
+                                                                                </a>
+                                                                                <div class="media-body">
+                                                                                    <div class="d-flex justify-content-between align-items-center w-100">
+                                                                                        <strong class="text-gray-dark"><a href="javascript:void(0)" class="fs-8">Rusty Mickelsen</a></strong>
+                                                                                        <a href="javascript:void(0)"><i class='bx bx-dots-horizontal-rounded'></i></a>
+                                                                                    </div>
+                                                                                    <span class="d-block comment-created-time">17 hours ago</span>
+                                                                                    <p class="fs-8 pt-2">
+                                                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                                                        Lorem ipsum dolor sit amet, <a href="javascript:void(0)">javascript:void(0)consecteturadipiscing </a>.
+                                                                                    </p>
+                                                                                    <div class="commentLR">
+                                                                                        <button type="button" class="btn btn-link fs-8">Like</button>
+                                                                                        <button type="button" class="btn btn-link fs-8">Reply</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li class="media">
+                                                                                <div class="media-body">
+                                                                                    <div class="comment-see-more text-center">
+                                                                                        <button type="button" class="btn btn-link fs-8">See More</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                            </ng-container>
+                                            <div class="text-center col-lg-12 p-5 bg-white w-shadow border" *ngIf="postList.length === 0">
+                                              <h5 class="text-muted">No post available</h5>
+                                            </div>
+                                            <div class="d-flex justify-content-center my-5 load-post">
+                                                <button type="button" class="btn btn-quick-link join-group-btn border shadow" (click)="loadMore()" ><i class='bx bx-dots-horizontal-rounded'></i></button>
+                                            </div>
+                                          </ng-container>
+                                          <ng-container *ngIf="toggleFlag" >
+                                            <div class="col-md-12 profile-center">
+
+                                            <ul class="list-group list-group-horizontal types-list fs-8">
+
+                                                <form class="list-group-item  w-1000 align-items-center mt-1 form-inline dropdown search-form">
+                                                    <div class="input-group w-50" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="searchDropdown">
+                                                        <input type="text" class="form-control search-input" placeholder="Search for people, companies, events and more..." aria-label="Search" aria-describedby="search-addon">
+                                                        <div class="input-group-append">
+                                                            <button class="btn search-button" type="button"><i class='bx bx-search'></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="dropdown-menu notify-drop nav-drop shadow-sm" aria-labelledby="searchDropdown">
+                                                        <div class="notify-drop-title">
+                                                            <div class="row">
+                                                                <div class="col-md-6 col-sm-6 col-xs-6 fs-8">Search Results <span class="badge badge-pill badge-primary ml-2">29</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- end notify title -->
+                                                        <!-- notify content -->
+                                                        <div class="drop-content">
+                                                            <h6 class="dropdown-header">Peoples</h6>
+                                                            <li class="dropdown-item">
+                                                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                                                    <div class="notify-img">
+                                                                        <img src="assets/images/users/user-6.png" alt="Search result">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-10 col-sm-10 col-xs-10">
+                                                                    <a href="#" class="notification-user">Susan P. Jarvis</a>
+                                                                    <a href="#" class="btn btn-quick-link join-group-btn border text-right float-right">
+                                                                        Add Friend
+                                                                    </a>
+                                                                    <p class="time">6 Mutual friends</p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="dropdown-item">
+                                                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                                                    <div class="notify-img">
+                                                                        <img src="assets/images/users/user-5.png" alt="Search result">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-10 col-sm-10 col-xs-10">
+                                                                    <a href="#" class="notification-user">Ruth D. Greene</a>
+                                                                    <a href="#" class="btn btn-quick-link join-group-btn border text-right float-right">
+                                                                        Add Friend
+                                                                    </a>
+                                                                </div>
+                                                            </li>
+                                                            <h6 class="dropdown-header">Groups</h6>
+                                                            <li class="dropdown-item">
+                                                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                                                    <div class="notify-img">
+                                                                        <img src="assets/images/groups/group-2.jpg" alt="Search result">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-10 col-sm-10 col-xs-10">
+                                                                    <a href="#" class="notification-user">Tourism</a>
+                                                                    <a href="#" class="btn btn-quick-link join-group-btn border text-right float-right">
+                                                                        Join
+                                                                    </a>
+                                                                    <p class="time">2.5k Members 35+ post a week</p>
+                                                                </div>
+                                                            </li>
+                                                            <li class="dropdown-item">
+                                                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                                                    <div class="notify-img">
+                                                                        <img src="assets/images/groups/group-1.png" alt="Search result">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-10 col-sm-10 col-xs-10">
+                                                                    <a href="#" class="notification-user">Argon Social Network <img src="assets/images/theme/verify.png" width="10px" class="verify" alt="Group verified"></a>
+                                                                    <a href="#" class="btn btn-quick-link join-group-btn border text-right float-right">
+                                                                        Join
+                                                                    </a>
+                                                                    <p class="time">10k Members 20+ post a week</p>
+                                                                </div>
+                                                            </li>
+                                                        </div>
+                                                        <div class="notify-drop-footer text-center">
+                                                            <a href="#">See More</a>
+                                                        </div>
+                                                    </ul>
+                                                </form>
+                                            </ul>
+                                            <div class="bg-white py-3 px-4 shadow-sm">
+                                                <div class="card-head d-flex justify-content-between">
+                                                    <h5 class="mb-4">Latest Active Friends</h5>
+                                                    <a href="#" class="btn btn-link">See All</a>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4 col-sm-6">
+                                                        <div class="card group-card shadow-sm">
+                                                            <img src="assets/images/groups/group-1.png" class="card-img-top group-card-image" alt="Group image">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Ruth D. Greene <img src="assets/images/theme/verify.png" width="10px" class="verify" alt="Group verified"></h5>
+                                                                <p class="card-text">10k Members 20+ post a week</p>
+                                                                <div class="btn-group w-100" role="group">
+                                                                    <a href="#" class="btn btn-quick-link join-group-btn border w-100">Message</a>
+                                                                    <div class="btn-group" role="group">
+                                                                        <button id="friendsMore" type="button" class="btn btn-quick-link join-group-btn border btn-group-drop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            <i class='bx bx-dots-horizontal-rounded'></i>
+                                                                        </button>
+                                                                        <div class="dropdown-menu" aria-labelledby="friendsMore">
+                                                                            <a class="dropdown-item" href="#">Dropdown link</a>
+                                                                            <a class="dropdown-item" href="#">Dropdown link</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6">
+                                                        <div class="card group-card shadow-sm">
+                                                            <img src="assets/images/groups/group-2.jpg" class="card-img-top group-card-image" alt="Group image">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Tourism</h5>
+                                                                <p class="card-text">2.5k Members 35+ post a week</p>
+                                                                <a href="#" class="btn btn-quick-link join-group-btn border w-100">Join</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6">
+                                                        <div class="card group-card shadow-sm">
+                                                            <img src="assets/images/groups/group-3.jpg" class="card-img-top group-card-image" alt="Group image">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Reading Books</h5>
+                                                                <p class="card-text">1.3k Members 10+ post a day</p>
+                                                                <a href="#" class="btn btn-quick-link join-group-btn border w-100">Join</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6">
+                                                        <div class="card group-card shadow-sm">
+                                                            <img src="assets/images/groups/group-4.jpg" class="card-img-top group-card-image" alt="Group image">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Capture The Best</h5>
+                                                                <p class="card-text">2.8k Members 8+ post a day</p>
+                                                                <a href="#" class="btn btn-quick-link join-group-btn border w-100">Join</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                          </ng-container>
+                                          <!--  -->
+                                      </div>
+                                      <div class="col-md-3 profile-quick-media">
+                                          <h6 class="text-muted timeline-title">Recent Media</h6>
+                                          <div class="quick-media">
+                                              <div class="media-overlay"></div>
+                                              <a href="javascript:void(0)" class="quick-media-img"><img src="assets/images/users/album/album-1.jpg" alt="Quick media"></a>
+                                              <div class="media-overlay-content">
+                                                  <div class="d-flex justify-content-between align-items-center">
+                                                      <div class="media-overlay-owner">
+                                                          <img src="assets/images/users/user-12.png" alt="Media owner image">
+                                                          <span class="overlay-owner-name fs-9">Irwin M. Spelle</span>
+                                                      </div>
+                                                      <div class="dropdown">
+                                                          <a href="javascript:void(0)" class="overlay-more" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class='bx bx-dots-horizontal-rounded'></i></a>
+                                                          <div class="dropdown-menu dropdown-menu-right nav-drop dropdown-shadow">
+                                                              <a class="dropdown-item" href="javascript:void(0)">Save post</a>
+                                                              <a class="dropdown-item" href="javascript:void(0)">Turn on notifications</a>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+
+                                                  <div class="overlay-bottom d-flex justify-content-between align-items-center">
+                                                      <div class="argon-reaction">
+                                                          <span class="like-btn">
+                                                              <a href="javascript:void(0)" class="post-card-buttons" id="reactions"><i class='bx bxs-like mr-1'></i> 67</a>
+                                                              <ul class="reactions-box dropdown-shadow">
+                                                                  <li class="reaction reaction-like" data-reaction="Like"></li>
+                                                                  <li class="reaction reaction-love" data-reaction="Love"></li>
+                                                                  <li class="reaction reaction-haha" data-reaction="HaHa"></li>
+                                                                  <li class="reaction reaction-wow" data-reaction="Wow"></li>
+                                                                  <li class="reaction reaction-sad" data-reaction="Sad"></li>
+                                                                  <li class="reaction reaction-angry" data-reaction="Angry"></li>
+                                                              </ul>
+                                                          </span>
+                                                      </div>
+                                                      <div class="liked-users">
+                                                          <img src="assets/images/users/user-9.png" alt="Liked users">
+                                                          <img src="assets/images/users/user-6.png" alt="Liked users">
+                                                          <img src="assets/images/users/user-12.png" alt="Liked users">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="quick-media">
+                                              <div class="media-overlay"></div>
+                                              <a href="javascript:void(0)" class="quick-media-img"><img src="assets/images/users/album/album-2.jpg" alt="Quick media"></a>
+                                              <div class="media-overlay-content">
+                                                  <div class="d-flex justify-content-between align-items-center">
+                                                      <div class="media-overlay-owner">
+                                                          <img src="assets/images/users/user-12.png" alt="Media owner image">
+                                                          <span class="overlay-owner-name fs-9">Irwin M. Spelle</span>
+                                                      </div>
+                                                      <div class="dropdown">
+                                                          <a href="javascript:void(0)" class="overlay-more" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class='bx bx-dots-horizontal-rounded'></i></a>
+                                                          <div class="dropdown-menu dropdown-menu-right nav-drop dropdown-shadow">
+                                                              <a class="dropdown-item" href="javascript:void(0)">Save post</a>
+                                                              <a class="dropdown-item" href="javascript:void(0)">Turn on notifications</a>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+
+                                                  <div class="overlay-bottom d-flex justify-content-between align-items-center">
+                                                      <div class="argon-reaction">
+                                                          <span class="like-btn">
+                                                              <a href="javascript:void(0)" class="post-card-buttons" id="reactions"><i class='bx bxs-like mr-1'></i> 67</a>
+                                                              <ul class="reactions-box dropdown-shadow">
+                                                                  <li class="reaction reaction-like" data-reaction="Like"></li>
+                                                                  <li class="reaction reaction-love" data-reaction="Love"></li>
+                                                                  <li class="reaction reaction-haha" data-reaction="HaHa"></li>
+                                                                  <li class="reaction reaction-wow" data-reaction="Wow"></li>
+                                                                  <li class="reaction reaction-sad" data-reaction="Sad"></li>
+                                                                  <li class="reaction reaction-angry" data-reaction="Angry"></li>
+                                                              </ul>
+                                                          </span>
+                                                      </div>
+                                                      <div class="liked-users">
+                                                          <img src="assets/images/users/user-9.png" alt="Liked users">
+                                                          <img src="assets/images/users/user-6.png" alt="Liked users">
+                                                          <img src="assets/images/users/user-12.png" alt="Liked users">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="quick-media">
+                                              <div class="media-overlay"></div>
+                                              <a href="javascript:void(0)" class="quick-media-img"><img src="assets/images/users/album/album-3.jpg" alt="Quick media"></a>
+                                              <div class="media-overlay-content">
+                                                  <div class="d-flex justify-content-between align-items-center">
+                                                      <div class="media-overlay-owner">
+                                                          <img src="assets/images/users/user-12.png" alt="Media owner image">
+                                                          <span class="overlay-owner-name fs-9">Irwin M. Spelle</span>
+                                                      </div>
+                                                      <div class="dropdown">
+                                                          <a href="javascript:void(0)" class="overlay-more" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class='bx bx-dots-horizontal-rounded'></i></a>
+                                                          <div class="dropdown-menu dropdown-menu-right nav-drop dropdown-shadow">
+                                                              <a class="dropdown-item" href="javascript:void(0)">Save post</a>
+                                                              <a class="dropdown-item" href="javascript:void(0)">Turn on notifications</a>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+
+                                                  <div class="overlay-bottom d-flex justify-content-between align-items-center">
+                                                      <div class="argon-reaction">
+                                                          <span class="like-btn">
+                                                              <a href="javascript:void(0)" class="post-card-buttons" id="reactions"><i class='bx bxs-like mr-1'></i> 67</a>
+                                                              <ul class="reactions-box dropdown-shadow">
+                                                                  <li class="reaction reaction-like" data-reaction="Like"></li>
+                                                                  <li class="reaction reaction-love" data-reaction="Love"></li>
+                                                                  <li class="reaction reaction-haha" data-reaction="HaHa"></li>
+                                                                  <li class="reaction reaction-wow" data-reaction="Wow"></li>
+                                                                  <li class="reaction reaction-sad" data-reaction="Sad"></li>
+                                                                  <li class="reaction reaction-angry" data-reaction="Angry"></li>
+                                                              </ul>
+                                                          </span>
+                                                      </div>
+                                                      <div class="liked-users">
+                                                          <img src="assets/images/users/user-9.png" alt="Liked users">
+                                                          <img src="assets/images/users/user-6.png" alt="Liked users">
+                                                          <img src="assets/images/users/user-12.png" alt="Liked users">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- New message modal -->
+  <div class="modal fade" id="newMessageModal" tabindex="-1" role="dialog" aria-labelledby="newMessageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+              <div class="modal-header new-msg-header">
+                  <h5 class="modal-title" id="newMessageModalLabel">Start new conversation</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body new-msg-body">
+                  <form action="" method="" class="new-msg-form">
+                      <div class="form-group">
+                          <label for="message-text" class="col-form-label">Message:</label>
+                          <textarea class="form-control search-input" rows="5" id="message-text" placeholder="Type a message..."></textarea>
+                      </div>
+                  </form>
+              </div>
+              <div class="modal-footer new-msg-footer">
+                  <button type="button" class="btn btn-primary btn-sm">Send message</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+</div>
