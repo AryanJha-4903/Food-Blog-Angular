@@ -1,7 +1,8 @@
+import { Recipe } from './../../models/recipe.model';
 import { OpenService } from './../../services/open.service';
 import { StorageService } from './../../services/storage.service';
 
-import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, ViewChild, ElementRef, TemplateRef  } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FormService } from '../../services/form.service';
@@ -11,8 +12,9 @@ import { get } from 'http';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { map, switchMap } from 'rxjs';
 import { ngxLoadingAnimationTypes } from 'ngx-loading';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -20,6 +22,9 @@ import { ngxLoadingAnimationTypes } from 'ngx-loading';
 })
 export class HomeComponent implements OnInit,AfterViewInit {
 
+   public Editor = ClassicEditor;
+    @ViewChild('recipeModal') recipeModal!: TemplateRef<any>;
+  selectedMeal: any;
   page = 0;
   size = 10;
   sessionProfile: any;
@@ -43,6 +48,13 @@ export class HomeComponent implements OnInit,AfterViewInit {
     }
   }
 };
+
+tabid: number = 1;
+// editorConfig = {
+//   placeholder: `What’s on your mind, ${this.sessionProfile.firstName}?`,
+//   toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ]
+//   // …any other CKEditor config options
+// };
 commentText: any;
   username: any;
 caption: any;
@@ -55,9 +67,11 @@ loadingConfig = {
     secondaryColour: '#000000',
     tertiaryColour: '#000000'
   };
+  countryList: any[] = [];
+  recipeCategoryList: any[]=[];
   // loading: boolean = true;
-
-  constructor(private StorageService: StorageService,private formService: FormService, private router: Router,private cdr: ChangeDetectorRef,private spinner: NgxSpinnerService, private openService: OpenService) {}
+  // selected_category : any
+  constructor(private modalService: NgbModal,private StorageService: StorageService,private formService: FormService, private router: Router,private cdr: ChangeDetectorRef,private spinner: NgxSpinnerService, private openService: OpenService) {}
 
   ngAfterViewInit(): void {
 
@@ -73,10 +87,33 @@ loadingConfig = {
     console.log("SessionID",this.sessionProfile);
     this.getAllPost(this.page, this.size);
     this.getThirdSectionData();
+    this.countryList = this.openService.getRecipeCountry()
+    this.getReciepe();
     // console.log("weatherData=>", this.weatherData)
   }
 
   visibleCommentIndexes = new Set<number>();
+  openRecipeModal(meal: any): void {
+    // this.selectedMeal = this.(meal);
+    this.getDetailedreciepe(meal?.idMeal)
+    this.modalService.open(this.recipeModal, { centered: true, size: 'lg' });
+  }
+getIngredients(meal: any): string[] {
+  const ingredients: string[] = [];
+
+  for (let i = 1; i <= 20; i++) {
+    const ingredient = meal[`strIngredient${i}`];
+    const measure = meal[`strMeasure${i}`];
+
+    if (ingredient && ingredient.trim()) {
+      const item = measure && measure.trim() ? `${ingredient} - ${measure}` : ingredient;
+      ingredients.push(item);
+    }
+  }
+
+  return ingredients;
+}
+
 
   toggleComments(index: number): void {
     if (this.visibleCommentIndexes.has(index)) {
@@ -99,6 +136,16 @@ loadingConfig = {
     return this.visibleCommentIndexes.has(index);
   }
 
+  getReciepe(){
+    this.openService.getRecipeCategory().subscribe({
+      next: (data)=>{
+        this.recipeCategoryList = data.categories
+        console.log("categories=>", this.recipeCategoryList);
+      },error: (err)=>{
+        console.error(err);
+      }
+    });
+  }
 
   getAllPost(page: number , size: number ) {
      this.spinner.show();
@@ -121,6 +168,32 @@ loadingConfig = {
     this.getAllPost(this.page, this.size)
   }
 
+  meals: any[]=[]
+  loadRecipes(selected_category: string, flag: boolean){
+    console.log('cat=>', selected_category)
+    let query = flag == true? 'a='+ selected_category :'c=' + selected_category
+    this.openService.getRecipeByCategoryorCountry(query).subscribe({
+      next: (response)=>{
+        this.meals = response.meals
+        console.log('response=>', response)
+        this.meals.map(item=>{
+          item.strCategory = selected_category;
+        })
+      }, error:(err)=>{
+        console.log(err)
+      }
+    });
+  }
+
+  getDetailedreciepe(id: string){
+    this.openService.getDetailedRecipe(id).subscribe({
+      next:(response)=>{
+        this.selectedMeal = response.meals[0]
+      },error: (err)=>{
+        console.error(err)
+      }
+    })
+  }
 
 
   getTimeAgo(dateString: string): string {
@@ -227,7 +300,11 @@ submitPost(): void {
     next: (data: any)=>{
       console.log("post=>", data)
       // this.postList.unshift(data);
-      this.loadMore();
+      this.postList = []
+      this.getAllPost(0, this.size)
+      this.page = 0; // Reset page to 0 after submitting a new post
+      // this.page = -1
+      // this.loadMore();
       this.cdr.detectChanges();
       this.selectedFiles = [];
       this.caption = '';
@@ -271,6 +348,10 @@ sectionLoading :boolean = true
 
   gotoviewProfile(userid: string) {
     // this.StorageService.setItem('viewProfile', userid);
+    if (this.sessionProfile.userId == userid) {
+      this.router.navigate(['/profile']);
+    }else {
     this.router.navigate(['/viewprofile', userid]);
+    }
   }
 }

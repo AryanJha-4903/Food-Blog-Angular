@@ -90,6 +90,36 @@ export class FormService {
 
     return this.http.post<string>(this.url+'/friends/update', {}, { headers, params , responseType: 'text' as 'json'});
   }
+
+  getFriends(userId: string, page:number, size: number): Observable<any> {
+    const token = this.storageService.getItem("token")
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      // 'Accept': 'application/json'
+    });
+    let params = new HttpParams()
+        .set('userId', userId)
+        .set('page', page.toString())
+        .set('size', size.toString());
+    return this.http.get<any>(this.url+'/friends', { headers, params });
+  }
+
+
+  getSearchResults(query: string, page: number, size: number): Observable<any> {
+    const token = this.storageService.getItem("token")
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      // 'Accept': 'application/json'
+    });
+    let params = new HttpParams()
+        .set('query', query)
+        .set('page', page.toString())
+        .set('size', size.toString());
+    return this.http.get<any>(this.url+'/search', { headers, params });
+  }
+
+
+
 }
 
 

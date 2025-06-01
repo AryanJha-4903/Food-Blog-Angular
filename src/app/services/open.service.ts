@@ -26,6 +26,59 @@ export class OpenService {
   getWeatherIcon(code: number): string {
     return weatherCodeIconMap[code] || 'assets/images/icons/weather/cloud.png'; // default
   }
+  getRecipeCategory(): Observable<any>{
+    return this.http.get(`https://www.themealdb.com/api/json/v1/1/categories.php`);
+  }
+
+  getRecipeByCategoryorCountry(query: string):Observable<any>{
+    let url =`https://www.themealdb.com/api/json/v1/1/filter.php?${query}`
+    console.log(url)
+    return this.http.get(url)
+  }
+
+  getDetailedRecipe(id: string):Observable<any>{
+    return this.http.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+  }
+  getRecipeCountry(): any[]{
+    return  [
+                { name: "United Kingdom", code: "gb", type: "British" },
+                { name: "United States", code: "us", type: "American" },
+                { name: "France", code: "fr", type: "French" },
+                { name: "Canada", code: "ca", type: "Canadian" },
+                { name: "Jamaica", code: "jm", type: "Jamaican" },
+                { name: "China", code: "cn", type: "Chinese" },
+                { name: "Netherlands", code: "nl", type: "Dutch" },
+                { name: "Argentina", code: "ar", type: "Argentinian" },
+                { name: "India", code: "in", type: "Indian" },
+                { name: "Nigeria", code: "ng", type: "Nigerian" },
+                { name: "Ireland", code: "ie", type: "Irish" },
+                { name: "Italy", code: "it", type: "Italian" },
+                { name: "Japan", code: "jp", type: "Japanese" },
+                { name: "Saint Kitts and Nevis", code: "kn", type: "Caribbean" },
+                { name: "Malaysia", code: "my", type: "Malaysian" },
+                { name: "Mexico", code: "mx", type: "Mexican" },
+                { name: "Morocco", code: "ma", type: "Moroccan" },
+                { name: "Croatia", code: "hr", type: "Croatian" },
+                { name: "Norway", code: "no", type: "Norwegian" },
+                { name: "Portugal", code: "pt", type: "Portuguese" },
+                { name: "Russia", code: "ru", type: "Russian" },
+                { name: "Slovakia", code: "sk", type: "Slovak" },
+                { name: "Spain", code: "es", type: "Spanish" },
+                { name: "Thailand", code: "th", type: "Thai" },
+                { name: "Saudi Arabia", code: "sa", type: "Middle Eastern" },
+                { name: "Vietnam", code: "vn", type: "Vietnamese" },
+                { name: "Turkey", code: "tr", type: "Turkish" },
+                { name: "Iraq", code: "iq", type: "Iraqi" },
+                { name: "Algeria", code: "dz", type: "Algerian" },
+                { name: "Tunisia", code: "tn", type: "Tunisian" },
+                { name: "Poland", code: "pl", type: "Polish" },
+                { name: "Philippines", code: "ph", type: "Filipino" },
+                { name: "Ukraine", code: "ua", type: "Ukrainian" },
+                { name: "Uruguay", code: "uy", type: "Uruguayan" }
+            ];
+
+
+  }
 
 }
 export const weatherCodeIconMap: { [code: number]: string } = {

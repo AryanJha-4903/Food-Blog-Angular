@@ -259,10 +259,10 @@ button:focus {
     border: 0
 }
 
-/* .newsfeed-left-sidebar li.sd-active {
-    border-left: 4px solid #007bff;
-    background-color: #f6f6f6
-} */
+.newsfeed-left-sidebar li.sd-active {
+    border-left: 4px solid #fb8c04;  /* Blue left border on hover or active */
+  background-color: #f6f6f6;       /* Light gray background on hover or active */
+}
 .newsfeed-left-sidebar li:hover {
   border-left: 4px solid #fb8c04;  /* Blue left border on hover or active */
   background-color: #f6f6f6;       /* Light gray background on hover or active */

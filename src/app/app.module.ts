@@ -19,6 +19,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgxLoadingModule } from "ngx-loading";
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -40,6 +41,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     NgbModule,
     NgxSpinnerModule,
     InfiniteScrollModule,
+    CKEditorModule ,
     NgxLoadingModule.forRoot({}),
   ],
   providers: [
