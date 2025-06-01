@@ -11,6 +11,51 @@
   background-color: #fb8c04 !important; /* Orange background color */
   border-color: #fb8c04 !important; /* Orange border color */
 }
+
+/* Add this in your component CSS or global styles */
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-top: -0.25rem;
+}
+
+.dropdown-submenu:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  min-width: 180px;
+}
+
+.dropdown-submenu .dropdown-menu {
+  margin-left: 0.1rem;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.modal-backdrop {
+  z-index: 1040 !important;
+}
+
+.modal {
+  z-index: 1050 !important;
+}
 /* .carousel-wrapper {
   max-width: 650px;
   margin: 0 auto;

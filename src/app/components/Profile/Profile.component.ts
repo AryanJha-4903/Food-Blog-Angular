@@ -15,6 +15,17 @@ import { LoginService } from '../../services/login.service';
   styleUrls: ['./Profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+
+  bannerImages: string[] = [
+  'assets/images/banners/b.jpg',
+  'assets/images/banners/b1.jpg',
+  'assets/images/banners/b2.jpg',
+  'assets/images/banners/b4.jpg',
+  'assets/images/banners/b5.jpg',
+  'assets/images/banners/b6.webp'
+];
+
+  randomNumber : number = Math.floor(Math.random() * 6);
   userName: any;
   caption: any;
   serverEndPoint = environment.apiurl
@@ -47,6 +58,10 @@ export class ProfileComponent implements OnInit {
   username: any;
   commentText: any;
   viewProfileFlag: boolean = false;
+  friendsList: any[]  = [];
+
+
+
 
   constructor(private loginService : LoginService,private StorageService: StorageService,private formService: FormService, private router: Router,private cdr: ChangeDetectorRef,private spinner: NgxSpinnerService, private openService: OpenService, private activeroute: ActivatedRoute) {}
   currentSession : any;
@@ -57,6 +72,8 @@ export class ProfileComponent implements OnInit {
       // Extract the username from the URL
       let userid = this.activeroute.snapshot.paramMap.get('userid');
       this.viewProfileFlag = true
+
+
       // console.log("username from URL=>", username);
       if (userid) {
        console.log("username found in the URL");
@@ -75,7 +92,9 @@ export class ProfileComponent implements OnInit {
           // this.username = data.username;
           this.currentSession = data
           this.sessionProfile = data;
+
           console.log("current session=>", this.currentSession);
+          this.checkIfFollowing()
         },
         error: (err) => {
           console.error("Error fetching profile data:", err);
@@ -92,39 +111,48 @@ export class ProfileComponent implements OnInit {
       console.log("username=>",this.userName)
       console.log("current session=>", this.currentSession)
       this.getPostByUsername()
+
     }
 
 
     // this.loadMore()
 
   }
-gotoSetting() {
-  // Logic to navigate to the settings page
-  console.log('Navigating to settings...');
-  // You can use Angular Router to navigate to the settings page
-  this.router.navigate(['/settings']);
-}
-scaleDown(event: MouseEvent): void {
-  const target = event.target as HTMLElement | null;
-  if (target) {
-    target.style.transform = 'scale(0.90)';
+
+  checkIfFollowing(): void {
+    const currentUserId = this.currentSession?.userId;
+    const friendUserIds = this.sessionProfile?.friendUserIds || [];
+
+    this.toggleFollowButton = friendUserIds.includes(currentUserId);
+    console.log("toggleFollowButton=>", this.toggleFollowButton);
   }
-}
-
-scaleUp(event: MouseEvent): void {
-  const target = event.target as HTMLElement | null;
-  if (target) {
-    target.style.transform = 'scale(1)';
+  gotoSetting() {
+    // Logic to navigate to the settings page
+    console.log('Navigating to settings...');
+    // You can use Angular Router to navigate to the settings page
+    this.router.navigate(['/settings']);
   }
-}
+  scaleDown(event: MouseEvent): void {
+    const target = event.target as HTMLElement | null;
+    if (target) {
+      target.style.transform = 'scale(0.90)';
+    }
+  }
 
-isImage(url: string): boolean {
-  return url?.match(/\.(jpeg|jpg|gif|png|webp)$/i) != null;
-}
+  scaleUp(event: MouseEvent): void {
+    const target = event.target as HTMLElement | null;
+    if (target) {
+      target.style.transform = 'scale(1)';
+    }
+  }
 
-isVideo(url: string): boolean {
-  return url?.match(/\.(mp4|webm|ogg)$/i) != null;
-}
+  isImage(url: string): boolean {
+    return url?.match(/\.(jpeg|jpg|gif|png|webp)$/i) != null;
+  }
+
+  isVideo(url: string): boolean {
+    return url?.match(/\.(mp4|webm|ogg)$/i) != null;
+  }
 
   toggleComments(index: number): void {
     if (this.visibleCommentIndexes.has(index)) {
@@ -183,7 +211,7 @@ getPostByUsername(){
 addComment(postId: string, index: number) {
   const payload = {
     postId: postId,
-    username: this.username,
+    username: this.userName,
     text: this.commentText,
   }
   console.log("payload=>", payload)
@@ -225,27 +253,7 @@ addComment(postId: string, index: number) {
     return 'Just now';
   }
 
-  // updateProfilePicture(event: any) {
-  //   const file = event.target.files[0];
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     reader.onload = (e: any) => {
-  //       const base64Image = e.target.result;
-  //       console.log("base64Image=>", base64Image);
-  //       this.sessionProfile.profilePicture = base64Image;
-  //       this.StorageService.setItem("profile", this.sessionProfile);
-  //       this.loginService.postProfile(this.sessionProfile).subscribe({
-  //         next: (data) => {
-  //           console.log("Profile updated successfully:", data);
-  //         },
-  //         error: (err) => {
-  //           console.error("Error updating profile:", err);
-  //         }
-  //       });
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // }
+
   updateProfilePictureFromInput(event: any): void {
     const file = event.target.files[0];
     if (!file) return;
@@ -287,9 +295,12 @@ addComment(postId: string, index: number) {
   }
 
   toggleFollowButton: boolean = false;
-  updateFriendsList(flag: boolean){
+
+
+  updateFriendsList(flag: boolean, friendId: string){
     let currentUserID = this.StorageService.getItem("userID");
-    let friendUserId = this.currentSession.userId;
+    // let friendUserId = this.currentSession.userId;
+    let friendUserId = friendId;
     this.formService.updateFriends(currentUserID, friendUserId, flag).subscribe({
       next: ( data: string)=>{
         console.log("update friends data=>", data);
@@ -305,4 +316,23 @@ addComment(postId: string, index: number) {
     this.toggleFlag = !this.toggleFlag;
   }
 
+  getFriendsList( page: number, size: number){
+    let userid = this.currentSession.userId;
+    this.formService.getFriends(userid, page, size).subscribe({
+      next: (data) => {
+        console.log("friends list=>", data);
+        this.friendsList = data.content;
+        // this.StorageService.setItem("profile", this.currentSession);
+      },
+      error: (err) => {
+        console.error("Error fetching friends list:", err);
+      }
+    });
+  }
+  friendPage: number = 0;
+  loadMoreFriends() {
+    this.friendPage++;
+    console.log("friendPage=>", this.friendPage);
+    this.getFriendsList(this.friendPage, this.size);
+  }
 }

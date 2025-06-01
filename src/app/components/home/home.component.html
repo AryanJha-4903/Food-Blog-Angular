@@ -12,11 +12,51 @@
                               <span class="mr-3 p-2">
                                   <h6>Home</h6>
                               </span>
-                              <li class="list-group-item d-flex justify-content-between align-items-center sd-active">
-                                  <a href="javascript:void(0)" class="sidebar-item"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAOZJREFUSEvllgEOgjAMRT830ZvoSQwnEW7iTfQmchO0Zl0aHHSQNjXYZAlhS9/a/G2/QVA0QVz8HPhk3IkBAI0c04o7AFdjKKfr3x+U/xMSfADwdIJy2iNXLsGy2rPxBu4pXwvgNq1Ygq1FNyZwbvdcxfyf2k9jLh5porROCmo1WBMbb7C0Toppf+CwVmuHwK3VYRXvR1xh51gTTe38anFpFS+BXW+uJbDrzeUGDmt1rXi0ddXi8jICxfeYDB47Ba2CrfNF60PJ6Oq7KI//VihZHrI+X2ZPJrS2t+xUMsPaW1V34//AL6HNYh9qu3cEAAAAAElFTkSuQmCC"/> My Feed</a>
+                              <li class="list-group-item d-flex justify-content-between align-items-center" [ngClass]="{'sd-active':tabid==1 }">
+                                  <a href="javascript:void(0)" class="sidebar-item" (click)="tabid = 1"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAOZJREFUSEvllgEOgjAMRT830ZvoSQwnEW7iTfQmchO0Zl0aHHSQNjXYZAlhS9/a/G2/QVA0QVz8HPhk3IkBAI0c04o7AFdjKKfr3x+U/xMSfADwdIJy2iNXLsGy2rPxBu4pXwvgNq1Ygq1FNyZwbvdcxfyf2k9jLh5porROCmo1WBMbb7C0Toppf+CwVmuHwK3VYRXvR1xh51gTTe38anFpFS+BXW+uJbDrzeUGDmt1rXi0ddXi8jICxfeYDB47Ba2CrfNF60PJ6Oq7KI//VihZHrI+X2ZPJrS2t+xUMsPaW1V34//AL6HNYh9qu3cEAAAAAElFTkSuQmCC"/> My Feed</a>
                               </li>
+                              <li class="list-group-item d-flex justify-content-between align-items-center" [ngClass]="{'sd-active':tabid==2 }" ngbDropdown container="body">
+                                    <div ngbDropdownToggle class="sidebar-item dropdown-toggle d-flex align-items-center">
+                                      <i class="bx bx-dish"></i>&nbsp;Recipes
+                                    </div>
+
+                                    <div ngbDropdownMenu class="dropdown-menu">
+                                      <div ngbDropdown class="dropdown-submenu">
+                                        <button ngbDropdownToggle class="dropdown-item dropdown-toggle"><i class='bx bxs-categories'></i> Category</button>
+                                        <div ngbDropdownMenu class="dropdown-menu" style="max-height: 200px; overflow-y: auto;">
+                                          <!-- <button ngbDropdownItem>Chinese</button> -->
+                                          <!-- <button ngbDropdownItem>Japanese</button> -->
+                                           <button
+                                            *ngFor="let category of recipeCategoryList"
+                                            ngbDropdownItem (click)="loadRecipes(category.strCategory, false); tabid = 2">
+                                            <img [src]="category.strCategoryThumb"
+                                                [alt]="category.strCategory"
+                                                class="mr-2" style="height: 25px; width: 25px;">
+                                            {{ category.strCategory }}
+                                          </button>
+                                        </div>
+                                      </div>
+                                      <div ngbDropdown class="dropdown-submenu">
+                                        <button ngbDropdownToggle class="dropdown-item dropdown-toggle"> <i class="bx bx-globe" ></i> Country</button>
+                                        <div ngbDropdownMenu class="dropdown-menu" style="max-height: 200px; overflow-y: auto;">
+                                           <button
+                                            *ngFor="let country of countryList"
+                                            ngbDropdownItem (click)="loadRecipes(country.type, true); tabid = 2">
+                                            <img [src]="'https://flagcdn.com/24x18/' + country.code + '.png'"
+                                                [alt]="country.name"
+                                                class="mr-2">
+                                            {{ country.name }}
+                                          </button>
+                                          <!-- <button ngbDropdownItem>India</button> -->
+                                          <!-- <button ngbDropdownItem>Thailand</button> -->
+                                        </div>
+                                      </div>
+                                    </div>
+                              </li>
+
+
                               <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
-                                  <a href="messages.html" class="sidebar-item"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAARhJREFUSEvtlt0RAiEMhHOdaCdaiVqJWolaiVqJdqKsY26Qn8BcyPDg8aAyA3whWdkM1GkMnbhUC14Q0VYR5JOIzv7+GvCViFYKKG8FfMmTEhi3PDWA8hFrd4kbJiWwhonyIFN7l2b8xji6j4M1mIP2syaCWwsJ5z1KNzYRkkv3SwKbCakERtEhBG3to9vN4DClc6qnvlqSuJJPpnWqsyZhCcYbkbVFS3BUNt+duoFhYXirwwH/hCh4+AFKAhyFlFoU+nHKJBiMwNAUsLdK0B8h1YCxBkLA4ZvvN8A4yO+5ML9kyFF/VQvmdTmLHM186h+95EIhOKy1hiv2XAxG6nbcpKlo3map2QP47tZ+mrPWw7LLFGP9P/AbhxRaH5TpFC0AAAAASUVORK5CYII="/> Messages</a>
+                                  <a href="messages.html" class="sidebar-item"><i class="bx bx-dish"></i>  Recipies</a>
                                   <span class="badge badge-primary badge-pill" style="color: #fb8c04;">2</span>
                               </li> -->
                               <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -41,12 +81,13 @@
                           </ul>
                       </div>
                   </div>
-                  <div class="col-md-6 mr-5 second-section" id="page-content-wrapper">
+                  <!--  -->
+                  <div class="col-md-6 mr-5 second-section" id="page-content-wrapper" *ngIf="tabid == 1">
                       <ul class="list-unstyled" style="margin-bottom: 0;">
                           <li class="media post-form w-shadow">
                               <div class="media-body">
                                   <div class="form-group post-input">
-                                      <textarea class="form-control" id="postForm" rows="2" name="caption" [(ngModel)]="caption" [placeholder]="'What \'s on your mind, '+ sessionProfile.firstName+' ?'"></textarea>
+                                      <textarea   class="form-control" id="postForm" rows="2" name="caption" [(ngModel)]="caption" [placeholder]="'What \'s on your mind, '+ sessionProfile.firstName+' ?'"></textarea>
                                   </div>
                                   <div class="row post-form-group">
                                       <div class="col-md-9">
@@ -75,63 +116,12 @@
                                   <div class="media-body pb-3 mb-0 small lh-125">
                                       <div class="d-flex justify-content-between align-items-center w-100">
                                           <a href="javascript:void(0)" class="text-gray-dark post-user-name" (click)="gotoviewProfile(item?.profile?.userId)">{{item?.profile?.firstName+ " " + item?.profile?.lastName}}</a>
-                                          <!-- <div class="dropdown">
-                                              <a href="javascript:void(0)" class="post-more-settings" role="button" data-toggle="dropdown" id="postOptions" aria-haspopup="true" aria-expanded="false">
-                                                  <i class='bx bx-dots-horizontal-rounded'></i>
-                                              </a>
-                                              <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left post-dropdown-menu">
-                                                  <a href="#" class="dropdown-item" aria-describedby="savePost">
-                                                      <div class="row">
-                                                          <div class="col-md-2">
-                                                              <i class='bx bx-bookmark-plus post-option-icon'></i>
-                                                          </div>
-                                                          <div class="col-md-10">
-                                                              <span class="fs-9">Save post</span>
-                                                              <small id="savePost" class="form-text text-muted">Add this to your saved items</small>
-                                                          </div>
-                                                      </div>
-                                                  </a>
-                                                  <a href="#" class="dropdown-item" aria-describedby="hidePost">
-                                                      <div class="row">
-                                                          <div class="col-md-2">
-                                                              <i class='bx bx-hide post-option-icon'></i>
-                                                          </div>
-                                                          <div class="col-md-10">
-                                                              <span class="fs-9">Hide post</span>
-                                                              <small id="hidePost" class="form-text text-muted">See fewer posts like this</small>
-                                                          </div>
-                                                      </div>
-                                                  </a>
-                                                  <a href="#" class="dropdown-item" aria-describedby="snoozePost">
-                                                      <div class="row">
-                                                          <div class="col-md-2">
-                                                              <i class='bx bx-time post-option-icon'></i>
-                                                          </div>
-                                                          <div class="col-md-10">
-                                                              <span class="fs-9">Snooze Lina for 30 days</span>
-                                                              <small id="snoozePost" class="form-text text-muted">Temporarily stop seeing posts</small>
-                                                          </div>
-                                                      </div>
-                                                  </a>
-                                                  <a href="#" class="dropdown-item" aria-describedby="reportPost">
-                                                      <div class="row">
-                                                          <div class="col-md-2">
-                                                              <i class='bx bx-block post-option-icon'></i>
-                                                          </div>
-                                                          <div class="col-md-10">
-                                                              <span class="fs-9">Report</span>
-                                                              <small id="reportPost" class="form-text text-muted">I'm concerned about this post</small>
-                                                          </div>
-                                                      </div>
-                                                  </a>
-                                              </div>
-                                          </div> -->
                                       </div>
                                       <span class="d-block">{{getTimeAgo(item?.post?.createdAt)}}<i class='bx bx-globe ml-3'></i></span>
                                   </div>
                               </div>
-                              <div class="mt-3">
-                                  <p>{{item?.post?.caption}}</p>
+                              <div class="mt-3" >
+                                  <p [innerHTML]="item?.post?.caption"></p>
                               </div>
                               <div class="carousel-wrapper mt-2 mb-3" >
                                 <owl-carousel-o [options]="customOptions" *ngIf="item?.post?.mediaUrls?.length > 0" style="max-height: 500px;min-height: 300px;overflow: hidden;">
@@ -279,6 +269,33 @@
 
                       </div>
                   </div>
+                  <!--  -->
+                  <div class="col-md-6 mr-5 second-section" id="page-content-wrapper"  *ngIf="tabid == 2">
+                    <div class="post border-bottom p-3 bg-white w-shadow" *ngFor="let meal of meals">
+
+                      <div class="d-flex align-items-start">
+                        <!-- Meal Image -->
+                        <img
+                          [src]="meal.strMealThumb"
+                          alt="{{ meal.strMeal }}"
+                          class="img-fluid rounded me-3 mr-4"
+                          style="width: 100px; height: 100px; object-fit: cover;"
+                        />
+
+                        <!-- Meal Info -->
+                        <div>
+                          <h5 class="mb-1">{{ meal.strMeal }}</h5>
+                          <p class="mb-1 text-muted">Category: {{ meal.strCategory || 'N/A' }}</p>
+                          <button class="btn btn-sm btn-primary mt-2" (click)="openRecipeModal(meal)">
+                            View Recipe
+                          </button>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <!--  -->
                   <div class="col-md-3 third-section">
                     <ngx-loading
                       [show]="sectionLoading"
@@ -314,54 +331,47 @@
   </div>
 
   <!-- Modals -->
-  <div class="modal bd-example-modal-lg" tabindex="87" role="dialog" id="postModal" aria-labelledby="postModal" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-              <div class="modal-body post-body">
-                  <div class="container-fluid">
-                      <div class="row">
-                          <div class="col-md-7 post-content">
-                              <img src="https://scontent.fevn1-2.fna.fbcdn.net/v/t1.0-9/56161887_588993861570433_2896723195090436096_n.jpg?_nc_cat=103&_nc_eui2=AeFI0UuTq3uUF_TLEbnZwM-qSRtgOu0HE2JPwW6b4hIki73-2OWYhc7L1MPsYl9cYy-w122CCak-Fxj0TE1a-kjsd-KXzh5QsuvxbW_mg9qqtg&_nc_ht=scontent.fevn1-2.fna&oh=ea44bffa38f368f98f0553c5cef8e455&oe=5D050B05" alt="post-image">
-                          </div>
-                          <div class="col-md-5 pr-3">
-                              <div class="media text-muted pr-3 pt-3">
-                                  <img src="assets/images/users/user-1.jpg" alt="user image" class="mr-3 post-modal-user-img">
-                                  <div class="media-body">
-                                      <div class="d-flex justify-content-between align-items-center w-100 post-modal-top-user fs-9">
-                                          <a href="#" class="text-gray-dark">John Michael</a>
-                                          <div class="dropdown">
-                                              <a href="#" class="postMoreSettings" role="button" data-toggle="dropdown" id="postOptions" aria-haspopup="true" aria-expanded="false">
-                                                  <i class='bx bx-dots-horizontal-rounded'></i>
-                                              </a>
-                                              <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left postDropdownMenu">
-                                                  <a href="#" class="dropdown-item" aria-describedby="savePost">
-                                                      <div class="row">
-                                                          <div class="col-md-2">
-                                                              <i class='bx bx-bookmark-plus postOptionIcon'></i>
-                                                          </div>
-                                                          <div class="col-md-10">
-                                                              <span class="postOptionTitle">Save post</span>
-                                                              <small id="savePost" class="form-text text-muted">Add this to your saved items</small>
-                                                          </div>
-                                                      </div>
-                                                  </a>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <span class="d-block fs-8">3 hours ago <i class='bx bx-globe ml-3'></i></span>
-                                  </div>
-                              </div>
-                              <div class="mt-3 post-modal-caption fs-9">
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis voluptatem veritatis harum, tenetur, quibusdam voluptatum, incidunt saepe minus maiores ea atque sequi illo veniam sint quaerat corporis totam et. Culpa?</p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
 
+<!--  -->
+<ng-template #recipeModal let-modal>
+  <div class="modal-header" >
+    <h5 class="modal-title">{{ selectedMeal?.strMeal }}</h5>
+    <button type="button" class=" btn btn-danger btn-sm " aria-label="Close" (click)="modal.dismiss()">x</button>
+  </div>
+  <div class="modal-body">
+  <h4 class="mb-3">{{ selectedMeal?.strMeal }}</h4>
+
+  <img [src]="selectedMeal?.strMealThumb" alt="Meal Image" class="img-fluid rounded mb-3" />
+
+  <p><strong>Category:</strong> {{ selectedMeal?.strCategory }}</p>
+  <p><strong>Area:</strong> {{ selectedMeal?.strArea }}</p>
+  <p><strong>Tags:</strong> {{ selectedMeal?.strTags || 'None' }}</p>
+  <p><strong>Youtube Video:</strong>
+    <a *ngIf="selectedMeal?.strYoutube" [href]="selectedMeal.strYoutube" target="_blank">
+      Watch on YouTube
+    </a>
+  </p>
+
+  <hr />
+
+  <h5>Ingredients:</h5>
+  <ul>
+    <li *ngFor="let ingredient of getIngredients(selectedMeal)">
+      {{ ingredient }}
+    </li>
+  </ul>
+
+  <hr />
+
+  <h5>Instructions:</h5>
+  <p class="text-justify" style="white-space: pre-line;">
+    {{ selectedMeal?.strInstructions }}
+  </p>
+</div>
+
+</ng-template>
+
+<!--  -->
   <!-- Core -->
 
   <!-- Optional -->

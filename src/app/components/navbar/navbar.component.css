@@ -31,6 +31,20 @@ img.rounded-circle {
   top: 0;
   z-index: 1000;
 }
+.clear-icon {
+  position: absolute;
+  right: 3.2rem; /* just before the search button */
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #888;
+  z-index: 2;
+}
+.clear-icon:hover {
+  color: #000;
+}
+
 
 /*  <ul ngbDropdownMenu class="dropdown-menu notify-drop notify-mobile dropdown-menu-right nav-drop">
           <div class="notify-drop-title">

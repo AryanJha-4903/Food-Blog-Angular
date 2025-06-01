@@ -21,6 +21,8 @@
     "@angular/platform-server": "^18.2.0",
     "@angular/router": "^18.2.13",
     "@angular/ssr": "^18.2.6",
+    "@ckeditor/ckeditor5-angular": "^9.1.0",
+    "@ckeditor/ckeditor5-build-classic": "^41.4.2",
     "@ng-bootstrap/ng-bootstrap": "^18.0.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.5",
